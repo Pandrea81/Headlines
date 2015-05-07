@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Quotidiani-->
         <scene sceneID="IJy-ia-kxp">
             <objects>
                 <viewController id="oLi-Vv-Qys" customClass="ProvaViewController" customModule="Headlines" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,13 +31,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="uOv-gA-dtC"/>
+                    <tabBarItem key="tabBarItem" title="Quotidiani" id="uOv-gA-dtC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZV-V9-6ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1259.5" y="1405.5"/>
         </scene>
-        <!--Item 1-->
+        <!--Sportivi-->
         <scene sceneID="jwh-6H-xYz">
             <objects>
                 <viewController id="DbY-ZN-gcF" customClass="SportSectionViewController" customModule="Headlines" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="nhG-vA-QVB"/>
+                    <tabBarItem key="tabBarItem" title="Sportivi" id="nhG-vA-QVB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3c-Gl-L3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
