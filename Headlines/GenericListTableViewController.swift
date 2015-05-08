@@ -36,6 +36,8 @@ class GenericListTableViewController: UITableViewController, NSXMLParserDelegate
     
     
     let array = ["http://www.repubblica.it/rss/homepage/rss2.0.xml", "http://www.gazzetta.it/rss/home.xml"]
+    
+    var thumbnailIMG = UIImage()
    
     var mRSSURL1 : NSURL = NSURL()
     var mRSSURL2 : NSURL = NSURL()
@@ -57,6 +59,8 @@ class GenericListTableViewController: UITableViewController, NSXMLParserDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.thumbnailIMG = UIImage(named: "repubblica")!
         mRSSURL1 = NSURL(string: array[0])!
         mRSSURL2 = NSURL(string: array[1])!
         loadRSS(mRSSURL1)
@@ -161,19 +165,29 @@ class GenericListTableViewController: UITableViewController, NSXMLParserDelegate
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! RSScell
+        
+   // La roba qua sotto va messa in un dispatch_async per non bloccare il thread UI
+        
+        if let url = posts.objectAtIndex(indexPath.row).valueForKey("enclosure")!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding){
 
-        let imageURL = NSURL(string: posts.objectAtIndex(indexPath.row).valueForKey("enclosure")!.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+            if let imageURL = NSURL(string: url){
         
-        let data = NSData(contentsOfURL: imageURL!)
+                downloadImage(imageURL)
         
-        let image = UIImage(data: data!)
+        
+        }
+        }
+     //   let data = NSData(contentsOfURL: imageURL!)
+        
+        
+   //     let image = UIImage(data: data!)
         
         
         cell.mTitle.text =  posts.objectAtIndex(indexPath.row).valueForKey("title")  as? String
         cell.mDescription.text = "blablablablablablaahahahaagduaudgòJDajdaJFPajfòFJòlafjòLJAFòalj"
         cell.mDescription.editable = false
         cell.mDescription.userInteractionEnabled = true
-        cell.mImage.image = image
+        cell.mImage.image = thumbnailIMG
 
         return cell
     }
@@ -181,6 +195,24 @@ class GenericListTableViewController: UITableViewController, NSXMLParserDelegate
         
         self.performSegueWithIdentifier("mySegue", sender: self)
     }
+    
+    func downloadImage(url:NSURL){
+        
+        getDataFromUrl(url) { data in
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                self.thumbnailIMG = UIImage(data: data!)!
+            }
+        }
+    }
+    
+    func getDataFromUrl(urL:NSURL, completion: ((data: NSData?) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(urL) { (data, response, error) in
+            completion(data: NSData(data: data))
+            }.resume()
+    }
+    
+    
     
 
     /*
@@ -226,12 +258,12 @@ class GenericListTableViewController: UITableViewController, NSXMLParserDelegate
         
         if segue.identifier == "mySegue"{
             
-            let vc = segue.destinationViewController as! RSSTableViewController
+  /*          let vc = segue.destinationViewController as! RSSTableViewController
             
             let index = self.tableView.indexPathForSelectedRow()!
             
             let mSelectedFeed: AnyObject = posts[index.row]
-            vc.mRSSURLString = mSelectedFeed as! String
+            vc.mRSSURLString = mSelectedFeed as! String */
             
         
     }
