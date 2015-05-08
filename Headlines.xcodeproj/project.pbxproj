@@ -15,6 +15,7 @@
 		D2D20B811AFA686A00E18960 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D20B801AFA686A00E18960 /* Images.xcassets */; };
 		D2D20B841AFA686A00E18960 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2D20B821AFA686A00E18960 /* LaunchScreen.xib */; };
 		D2D20B901AFA686A00E18960 /* HeadlinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D20B8F1AFA686A00E18960 /* HeadlinesTests.swift */; };
+		D2FF86441AFCF441007408D8 /* RSSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF86431AFCF441007408D8 /* RSSTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		D2D20B891AFA686A00E18960 /* HeadlinesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeadlinesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D20B8E1AFA686A00E18960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D20B8F1AFA686A00E18960 /* HeadlinesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTests.swift; sourceTree = "<group>"; };
+		D2FF86431AFCF441007408D8 /* RSSTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				D2D20B791AFA686A00E18960 /* AppDelegate.swift */,
 				D27F444D1AFB94690038D537 /* ProvaViewController.swift */,
+				D2FF86431AFCF441007408D8 /* RSSTableViewController.swift */,
 				D2ABCB331AFBBFA600608776 /* GenericListTableViewController.swift */,
 				D27F444F1AFB9FC10038D537 /* SportSectionViewController.swift */,
 				D2D20B7D1AFA686A00E18960 /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				D27F44501AFB9FC10038D537 /* SportSectionViewController.swift in Sources */,
 				D2D20B7A1AFA686A00E18960 /* AppDelegate.swift in Sources */,
 				D2ABCB341AFBBFA600608776 /* GenericListTableViewController.swift in Sources */,
+				D2FF86441AFCF441007408D8 /* RSSTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
