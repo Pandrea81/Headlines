@@ -9,9 +9,15 @@
 import UIKit
 
 class ProvaViewController: UIViewController {
+    
+    var ciao : Int = 0
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        println("Ciao sono prova : \(ciao)" )
+        ciao = ciao + 1
+        
 
         // Do any additional setup after loading the view.
     }
