@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D3FE0AE1B009A6B008582E8 /* PreferredRSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3FE0AD1B009A6B008582E8 /* PreferredRSS.swift */; };
+		4D3FE0B01B009A90008582E8 /* WebRSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3FE0AF1B009A90008582E8 /* WebRSS.swift */; };
 		D2D20B7A1AFA686A00E18960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D20B791AFA686A00E18960 /* AppDelegate.swift */; };
-		D2D20B7C1AFA686A00E18960 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D20B7B1AFA686A00E18960 /* ViewController.swift */; };
+		D2D20B7C1AFA686A00E18960 /* GeneralListRSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D20B7B1AFA686A00E18960 /* GeneralListRSS.swift */; };
 		D2D20B7F1AFA686A00E18960 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D20B7D1AFA686A00E18960 /* Main.storyboard */; };
 		D2D20B811AFA686A00E18960 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D20B801AFA686A00E18960 /* Images.xcassets */; };
 		D2D20B841AFA686A00E18960 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2D20B821AFA686A00E18960 /* LaunchScreen.xib */; };
@@ -26,10 +28,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D3FE0AD1B009A6B008582E8 /* PreferredRSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferredRSS.swift; sourceTree = "<group>"; };
+		4D3FE0AF1B009A90008582E8 /* WebRSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRSS.swift; sourceTree = "<group>"; };
 		D2D20B741AFA686A00E18960 /* Headlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Headlines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D20B781AFA686A00E18960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D20B791AFA686A00E18960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2D20B7B1AFA686A00E18960 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2D20B7B1AFA686A00E18960 /* GeneralListRSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralListRSS.swift; sourceTree = "<group>"; };
 		D2D20B7E1AFA686A00E18960 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2D20B801AFA686A00E18960 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D2D20B831AFA686A00E18960 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -78,11 +82,13 @@
 			isa = PBXGroup;
 			children = (
 				D2D20B791AFA686A00E18960 /* AppDelegate.swift */,
-				D2D20B7B1AFA686A00E18960 /* ViewController.swift */,
+				D2D20B7B1AFA686A00E18960 /* GeneralListRSS.swift */,
 				D2D20B7D1AFA686A00E18960 /* Main.storyboard */,
 				D2D20B801AFA686A00E18960 /* Images.xcassets */,
 				D2D20B821AFA686A00E18960 /* LaunchScreen.xib */,
 				D2D20B771AFA686A00E18960 /* Supporting Files */,
+				4D3FE0AD1B009A6B008582E8 /* PreferredRSS.swift */,
+				4D3FE0AF1B009A90008582E8 /* WebRSS.swift */,
 			);
 			path = Headlines;
 			sourceTree = "<group>";
@@ -212,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2D20B7C1AFA686A00E18960 /* ViewController.swift in Sources */,
+				D2D20B7C1AFA686A00E18960 /* GeneralListRSS.swift in Sources */,
+				4D3FE0B01B009A90008582E8 /* WebRSS.swift in Sources */,
 				D2D20B7A1AFA686A00E18960 /* AppDelegate.swift in Sources */,
+				4D3FE0AE1B009A6B008582E8 /* PreferredRSS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
