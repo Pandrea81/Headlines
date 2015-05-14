@@ -56,7 +56,7 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
         
        
         
-        
+            cell.mTitle.userInteractionEnabled = false
             cell.mTitle.text = FeedsSingleton.feedArray.objectAtIndex(indexPath.row).valueForKey("title")  as? String
         
         

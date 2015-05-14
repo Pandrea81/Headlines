@@ -11,13 +11,6 @@ import UIKit
 
 class Parser : NSXMLParser, NSXMLParserDelegate {
     
-    let RSSarray = ["http://www.repubblica.it/rss/homepage/rss2.0.xml", "http://www.gazzetta.it/rss/home.xml"]
-    
-    var mRSSURL1 : NSURL = NSURL()
-    var mRSSURL2 : NSURL = NSURL()
-    var mRSSURL : NSURL = NSURL()
-    
-    var mURL : String?
     var mParser = NSXMLParser()
     var posts = NSMutableArray()
     var elements = NSMutableDictionary()
@@ -26,7 +19,7 @@ class Parser : NSXMLParser, NSXMLParserDelegate {
     var date = NSMutableString()
     var link = NSMutableString()
     
-    var valueToPass:String!
+    
     
     convenience init(contentsOfURL url: NSURL!){
             self.init()
