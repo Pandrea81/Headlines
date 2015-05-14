@@ -12,6 +12,10 @@
 		D2D20B811AFA686A00E18960 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D20B801AFA686A00E18960 /* Images.xcassets */; };
 		D2D20B841AFA686A00E18960 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2D20B821AFA686A00E18960 /* LaunchScreen.xib */; };
 		D2D20B901AFA686A00E18960 /* HeadlinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D20B8F1AFA686A00E18960 /* HeadlinesTests.swift */; };
+		D2ED9AC01B04A21900C3921C /* GenericListRSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED9ABF1B04A21900C3921C /* GenericListRSS.swift */; };
+		D2ED9AC51B04B6D400C3921C /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED9AC41B04B6D400C3921C /* Feed.swift */; };
+		D2ED9AC71B04B9DF00C3921C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED9AC61B04B9DF00C3921C /* Parser.swift */; };
+		D2ED9AC91B04BA4400C3921C /* RSSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED9AC81B04BA4400C3921C /* RSSCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,10 @@
 		D2D20B891AFA686A00E18960 /* HeadlinesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeadlinesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D20B8E1AFA686A00E18960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D20B8F1AFA686A00E18960 /* HeadlinesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTests.swift; sourceTree = "<group>"; };
+		D2ED9ABF1B04A21900C3921C /* GenericListRSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericListRSS.swift; sourceTree = "<group>"; };
+		D2ED9AC41B04B6D400C3921C /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		D2ED9AC61B04B9DF00C3921C /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		D2ED9AC81B04BA4400C3921C /* RSSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,8 @@
 		D2D20B761AFA686A00E18960 /* Headlines */ = {
 			isa = PBXGroup;
 			children = (
+				D2ED9AC31B04B52E00C3921C /* Model */,
+				D2ED9AC11B04A22900C3921C /* Controllers */,
 				D2D20B791AFA686A00E18960 /* AppDelegate.swift */,
 				D2D20B7D1AFA686A00E18960 /* Main.storyboard */,
 				D2D20B801AFA686A00E18960 /* Images.xcassets */,
@@ -107,6 +117,24 @@
 				D2D20B8E1AFA686A00E18960 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2ED9AC11B04A22900C3921C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2ED9ABF1B04A21900C3921C /* GenericListRSS.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D2ED9AC31B04B52E00C3921C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D2ED9AC41B04B6D400C3921C /* Feed.swift */,
+				D2ED9AC61B04B9DF00C3921C /* Parser.swift */,
+				D2ED9AC81B04BA4400C3921C /* RSSCell.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2ED9AC91B04BA4400C3921C /* RSSCell.swift in Sources */,
+				D2ED9AC71B04B9DF00C3921C /* Parser.swift in Sources */,
+				D2ED9AC01B04A21900C3921C /* GenericListRSS.swift in Sources */,
+				D2ED9AC51B04B6D400C3921C /* Feed.swift in Sources */,
 				D2D20B7A1AFA686A00E18960 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

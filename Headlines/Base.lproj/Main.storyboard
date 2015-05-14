@@ -109,19 +109,40 @@
             </objects>
             <point key="canvasLocation" x="-661" y="720"/>
         </scene>
-        <!--General ListRSS-->
+        <!--Generic ListRSS-->
         <scene sceneID="XIe-W8-SeX">
             <objects>
-                <viewController id="fLO-zq-3Wf" customClass="GeneralListRSS" customModule="Headlines" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ekH-7m-ITU"/>
-                        <viewControllerLayoutGuide type="bottom" id="pM9-x3-21X"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7eh-8e-Q3w">
+                <viewController id="fLO-zq-3Wf" customClass="GenericListRSS" customModule="Headlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="237" sectionHeaderHeight="22" sectionFooterHeight="22" id="pBU-YL-Yef">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="237" id="wpm-mL-5R7" customClass="RSSCell" customModule="Headlines" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wpm-mL-5R7" id="40G-Nh-GdX">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jQ-ce-Jda">
+                                            <rect key="frame" x="23" y="8" width="282" height="106"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIj-nn-QiV">
+                                            <rect key="frame" x="23" y="122" width="119" height="85"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mImage" destination="DIj-nn-QiV" id="4w6-pk-HOH"/>
+                                    <outlet property="mTitle" destination="5jQ-ce-Jda" id="Uip-av-t39"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="hjZ-F6-m0z"/>
                     <connections>
                         <segue destination="R5t-Fe-P2g" kind="show" id="KyJ-bb-Vuc"/>
@@ -129,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6g-7f-Tlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1040" y="420"/>
+            <point key="canvasLocation" x="-1040" y="401"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1wM-er-hQz">
