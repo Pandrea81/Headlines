@@ -152,11 +152,11 @@
             </objects>
             <point key="canvasLocation" x="-1040" y="401"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Headlines-->
         <scene sceneID="1wM-er-hQz">
             <objects>
-                <tabBarController id="5rC-J0-Sb9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="dUz-JA-qSO"/>
+                <tabBarController title="Headlines" id="5rC-J0-Sb9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Headlines" id="dUz-JA-qSO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZP9-sp-hTk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
