@@ -15,7 +15,7 @@ struct Feed {
     
     var title : String // titolo della notizia
     var URL : String   // url per aprire la webview
-    var imgLink : String // immagine da visualizzare nella tableview
+    var imgLink : String? // immagine da visualizzare nella tableview
     
     // inserire altri campi?
     
