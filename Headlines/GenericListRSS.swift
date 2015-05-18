@@ -24,7 +24,6 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
         super.viewDidLoad()
         
        
-
       
     }
     
