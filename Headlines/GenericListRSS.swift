@@ -7,29 +7,55 @@
 //
 
 import UIKit
+import ParseUI
+import Parse
 
 class GenericListRSS: UITableViewController, NSXMLParserDelegate {
 
-     let RSSarray = ["http://www.repubblica.it/rss/homepage/rss2.0.xml", "http://www.gazzetta.it/rss/home.xml"]
-     var mParser = Parser()
-     var mRSSURL1 : NSURL = NSURL()
+  
+    
+    let titoloKey = "titolo"
+    let linkKey = "url"
+    var feed : Feed?
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mRSSURL1 = NSURL(string: RSSarray[0])!
-        mParser.loadRSS(mRSSURL1)
-        
-        println("\(FeedsSingleton.feedArray)")
-        
-
+       
       
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        var query = PFQuery(className: "feeds")
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                
+                println("Ho ottenuto \(objects!.count) feed.")
+                
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        
+                        //in feed è contenuto anche il link da mandare nella WebView tramite la segue
+                        
+                        self.feed = Feed(title:object.objectForKey(self.titoloKey) as! String , URL: object.objectForKey(self.linkKey) as! String, imgLink: nil)
+                             self.tableView.reloadData()
+                        
+                    }
+                }
+            } else {
+                
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
+        
+    }
     
-    
-    
-  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,17 +73,20 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return FeedsSingleton.feedArray.count
+        return 1
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! RSSCell
         
        
         
             cell.mTitle.userInteractionEnabled = false
-            cell.mTitle.text = FeedsSingleton.feedArray.objectAtIndex(indexPath.row).valueForKey("title")  as? String
+        
+            cell.mTitle.text = feed?.title
+        
         
         
        
@@ -66,8 +95,6 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
         return cell
     }
     
-
-
     
     // MARK: - Navigation
 
