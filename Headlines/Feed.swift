@@ -24,7 +24,10 @@ struct Feed {
 
 class Feeds {
     
-    var feedArray = NSMutableArray()
+    var feedArray = [Feed]()
+    
+    
+    
     
     
 }

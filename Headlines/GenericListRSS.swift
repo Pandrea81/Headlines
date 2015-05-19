@@ -16,6 +16,7 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
     
     let titoloKey = "titolo"
     let linkKey = "url"
+    let imgKey = "imageUrl"
     var feed : Feed?
     
    
@@ -29,7 +30,7 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
-        var query = PFQuery(className: "feeds")
+        var query = PFQuery(className: "Feeds")
         
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
@@ -43,8 +44,10 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
                         
                         //in feed è contenuto anche il link da mandare nella WebView tramite la segue
                         
-                        self.feed = Feed(title:object.objectForKey(self.titoloKey) as! String , URL: object.objectForKey(self.linkKey) as! String, imgLink: nil)
-                             self.tableView.reloadData()
+                        self.feed = Feed(title:object.objectForKey(self.titoloKey) as! String , URL: object.objectForKey(self.linkKey) as! String, imgLink: object.objectForKey(self.imgKey) as? String)
+                        
+                                FeedsSingleton.feedArray.append(self.feed!)
+                                    self.tableView.reloadData()
                         
                     }
                 }
@@ -73,7 +76,7 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 1
+        return FeedsSingleton.feedArray.count
     }
 
     
@@ -85,7 +88,17 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
         
             cell.mTitle.userInteractionEnabled = false
         
-            cell.mTitle.text = feed?.title
+        if let url = FeedsSingleton.feedArray[indexPath.row].imgLink{
+            println(url)
+                let mFinalURL = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+                let imageURL = NSURL(string: url)
+                    if let data = NSData(contentsOfURL: imageURL!){
+                        cell.mImage.image = UIImage(data: data)
+            }
+        }
+        
+            cell.mTitle.text = FeedsSingleton.feedArray[indexPath.row].title as String
+        
         
         
         

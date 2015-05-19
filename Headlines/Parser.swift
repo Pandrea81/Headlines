@@ -82,7 +82,7 @@ class Parser : NSXMLParser, NSXMLParserDelegate {
             
             
             
-            FeedsSingleton.feedArray.addObject(elements)
+     //       FeedsSingleton.feedArray.addObject(elements)
             
       
         }
