@@ -9,7 +9,7 @@
 import Foundation
 
 
-var FeedsSingleton : Feeds = Feeds()
+var feedList : Feeds = Feeds()
 
 struct Feed {
     
