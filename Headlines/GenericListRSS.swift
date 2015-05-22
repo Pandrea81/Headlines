@@ -31,32 +31,70 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
-        var query = PFQuery(className: "Feeds")
+       
         
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]?, error: NSError?) -> Void in
+  
+        var innerQuery = PFQuery(className: "Papers")
+        innerQuery.includeKey("objectId")
+        innerQuery.whereKey("paper", containsString: "Repubblica")
+        innerQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             
             if error == nil {
                 
-                println("Ho ottenuto \(objects!.count) feed.")
-                
                 if let objects = objects as? [PFObject] {
+                    
                     for object in objects {
                         
-                        //in feed è contenuto anche il link da mandare nella WebView tramite la segue
+                        println(object.objectId)
+                    
+                        var query = PFQuery(className: "Feeds")
                         
-                        self.feed = Feed(title:object.objectForKey(self.titoloKey) as! String , URL: object.objectForKey(self.linkKey) as! String, imgLink: object.objectForKey(self.imgKey) as? String)
+                        query.whereKey("parent", equalTo: PFObject(withoutDataWithClassName: "Papers", objectId: object.objectId))
                         
-                        self.feedArray.append(self.feed!)
-                        self.tableView.reloadData()
+                        query.findObjectsInBackgroundWithBlock {
+                            (objects: [AnyObject]?, error: NSError?) -> Void in
+                            
+                            if error == nil {
+                                
+                                //       println("Ho ottenuto \(objects!.count) feed.")
+                                
+                                if let objects = objects as? [PFObject] {
+                                    for object in objects {
+                                        
+                                        
+                                            println(object)
+                                        
+                                        
+                                       
+                                        
+                                        self.feed = Feed(title:object.objectForKey(self.titoloKey) as! String , URL: object.objectForKey(self.linkKey) as! String, imgLink: object.objectForKey(self.imgKey) as? String)
+                                        //      println(self.feed?.URL)
+                                        
+                                        self.feedArray.append(self.feed!)
+                                        
+                                        self.tableView.reloadData()
+                                        
+                                        
+                                    }
+                                } else {
+                                    
+                                    println("Error: \(error!) \(error!.userInfo!)")
+                                }
+                            }
+                            
+                        }
+
+                            
                         
                     }
                 }
-            } else {
                 
-                println("Error: \(error!) \(error!.userInfo!)")
             }
+            
+            
         }
+    
+        
         
     }
     
@@ -88,9 +126,10 @@ class GenericListRSS: UITableViewController, NSXMLParserDelegate {
         
         
         cell.mTitle.userInteractionEnabled = false
+        cell.mTitle.font = UIFont(name: "TrebuchetMS-Bold", size: 16)
         
         if let url = self.feedArray[indexPath.row].imgLink{
-            println(url)
+          //  println(url)
             let mFinalURL = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
             let imageURL = NSURL(string: url)
             if let data = NSData(contentsOfURL: imageURL!){

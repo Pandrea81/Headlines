@@ -14,8 +14,10 @@ class RSSCell : UITableViewCell {
     
     
     
-    @IBOutlet weak var mImage: UIImageView!
     @IBOutlet weak var mTitle: UITextView!
+    
+   
+    @IBOutlet weak var mImage: UIImageView!
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
